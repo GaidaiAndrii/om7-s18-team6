@@ -4,7 +4,8 @@ from order.models import Order
 
 
 def order_form(request):
-    pass  # TODO: add code
+    # TODO: add code
+    return redirect("reconstruction")
 
 
 class OrderList(ListView):

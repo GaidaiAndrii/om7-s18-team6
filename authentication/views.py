@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from order.models import Order
 from authentication.models import CustomUser
 from django.db.models.functions import Now
@@ -7,7 +7,8 @@ from django.views.generic import ListView
 
 
 def user_form(request):
-    pass  # TODO: add code
+    # TODO: add code
+    return redirect("reconstruction")
 
 
 class UserList(ListView):
