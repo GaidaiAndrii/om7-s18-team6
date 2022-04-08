@@ -70,4 +70,4 @@ def add_order(request, id=0):
             form = OrderForm(request.POST, instance=order)
         if form.is_valid():
             form.save()
-        return redirect('add_order')
+        return redirect('order')

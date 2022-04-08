@@ -16,5 +16,4 @@ class OrderForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(OrderForm, self).__init__(*args, **kwargs)
         self.fields['user'].label_from_instance = lambda obj: f'{obj.first_name} {obj.last_name} {obj.id}'
-        self.fields['book'].from_instance = lambda obj: f'{obj.name} {book.description[:16]}...'
         self.fields['plated_end_at'] = forms.DateField(widget=forms.SelectDateWidget)

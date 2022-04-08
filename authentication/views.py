@@ -26,9 +26,7 @@ def user_form(request, id=0):
             form = CustomUserForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-        return redirect('user')
-
-    return redirect("reconstruction")
+        return redirect('users')
 
 
 class UserList(ListView):
