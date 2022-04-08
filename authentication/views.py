@@ -1,13 +1,33 @@
 from django.shortcuts import render, redirect
 from order.models import Order
 from authentication.models import CustomUser
+from authentication.forms import CustomUserForm
 from django.db.models.functions import Now
 from django.db.models import Q
 from django.views.generic import ListView
 
 
-def user_form(request):
-    # TODO: add code
+def user_form(request, id=0):
+    if request.method == "GET":
+        if id == 0:
+            form = CustomUserForm()
+        else:
+            try:
+                author = CustomUser.objects.get(pk=id)
+            except CustomUser.DoesNotExist:
+                return redirect("/random")
+            form = AuthorForm(instance=author)
+        return render(request, "authentication/user_form.html", {"form": form})
+    else:
+        if id == 0:
+            form = CustomUserForm(request.POST)
+        else:
+            author = CustomUser.objects.get(pk=id)
+            form = CustomUserForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+        return redirect('user')
+
     return redirect("reconstruction")
 
 
