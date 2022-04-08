@@ -1,11 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from order.models import Order
-
-
-def order_form(request):
-    # TODO: add code
-    return redirect("reconstruction")
+from order.forms import OrderForm
+from book.models import Book
 
 
 class OrderList(ListView):
@@ -51,3 +48,26 @@ def order_by_id(request, order_id):
                        'content': book_by_id})
     else:
         return redirect('order')
+
+
+def add_order(request, id=0):
+    if request.method == "GET":
+        if id == 0:
+            form = OrderForm()
+        else:
+            try:
+                order = Order.objects.get(pk=id)
+            except Order.DoesNotExist:
+                return redirect("not_found_404")
+            form = OrderForm(instance=order)
+        return render(request, "order/order_form.html", {"form": form})
+    else:
+        if id == 0:
+            form = OrderForm(request.POST)
+        else:
+            order = Order.objects.get(pk=id)
+            form = OrderForm(instance=order)
+            form = OrderForm(request.POST, instance=order)
+        if form.is_valid():
+            form.save()
+        return redirect('add_order')
