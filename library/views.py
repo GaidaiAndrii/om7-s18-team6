@@ -5,7 +5,7 @@ def not_found_404(request, exception):
     return render(request, '404.html',
                   {'title': '404',
                    'content_title': 'Громадська бібліотека ім. Т.Г. Шевченко.',
-                   'content': f'Error 404: Data you are searching not found...',
+                   'content': 'Error 404: Data you are searching not found...',
                    })
 
 
