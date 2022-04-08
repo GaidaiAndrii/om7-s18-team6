@@ -13,16 +13,16 @@ def user_form(request, id=0):
             form = CustomUserForm()
         else:
             try:
-                author = CustomUser.objects.get(pk=id)
+                user = CustomUser.objects.get(pk=id)
             except CustomUser.DoesNotExist:
                 return redirect("/random")
-            form = AuthorForm(instance=author)
+            form = AuthorForm(instance=user)
         return render(request, "authentication/user_form.html", {"form": form})
     else:
         if id == 0:
             form = CustomUserForm(request.POST)
         else:
-            author = CustomUser.objects.get(pk=id)
+            user = CustomUser.objects.get(pk=id)
             form = CustomUserForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
