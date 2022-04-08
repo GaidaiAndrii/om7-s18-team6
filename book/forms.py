@@ -6,10 +6,9 @@ from book.models import Book
 
 
 class BookForm(forms.ModelForm):
-    # Для випадаючого списку:
-    # def __init__(self, *args, **kwargs):
-    #     super.__init__(self, *args, **kwargs)
-    #     self.fields['dropwown_field'].empty_label = '--choose one of--'
+
+    authors = forms.ModelMultipleChoiceField(queryset=Author.objects.all())
+
     class Meta:
         model = Book
         fields = ["name", "description", "count", "authors"]
@@ -17,3 +16,6 @@ class BookForm(forms.ModelForm):
             "name": forms.TextInput(attrs={'class': 'form-input'}),
             "description": forms.Textarea(attrs={'cols': 80, 'rows': 4}),
         }
+    def __init__(self, *args, **kwargs):
+        super(BookForm, self).__init__(*args, **kwargs)
+        self.fields['authors'].label_from_instance = lambda obj: f'{obj.name} {obj.surname} {obj.patronymic}'
