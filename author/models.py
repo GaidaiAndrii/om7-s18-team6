@@ -144,4 +144,3 @@ class Author(models.Model):
         patronymic_is_not_empty = self.patronymic and self.patronymic.strip()
         patronymic  = f"{self.patronymic[0]}." if patronymic_is_not_empty else ""
         return f"{self.surname} {self.name[0]}.{patronymic}".format(**vars())
-

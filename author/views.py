@@ -26,29 +26,6 @@ def author_form(request, id=0):
             form.save()
         return redirect('author')
 
-def book_form(request, id=0):
-    if request.method == "GET":
-        if id == 0:
-            form = BookForm()
-        else:
-            try:
-                book = Book.objects.get(pk=id)
-            except Book.DoesNotExist:
-                return redirect("not_found_404")
-            form = BookForm(instance=book)
-        return render(request, "book/book_form.html", {"form": form})
-    else:
-        if id == 0:
-            form = BookForm(request.POST)
-        else:
-            book = Book.objects.get(pk=id)
-            form = BookForm(request.POST, instance=book)
-        if form.is_valid():
-            form.save()
-        return redirect('list_all')
-
-
-
 
 class AuthorList(ListView):
     model = Author
