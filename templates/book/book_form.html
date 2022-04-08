@@ -2,13 +2,12 @@
 
 
 {% block title %}
-<title>{{ title }}</title>
+	<title>{{ title }}</title>
 {% endblock title%}
 
 {% block header %}
-<h1> {{ header }} </h1>
+	<h1> {{ header }} </h1>
 {% endblock header %}
-
 
 {% block content %}
 	<div align = 'center'>
@@ -32,6 +31,8 @@
 
 			<button type="submit" class="btn btn-success">Зберегти</button>
 		</div>
-
 	</form>
+
+    <br>
+    <a href="{% url 'index' %}">Home</a>
 {% endblock %}

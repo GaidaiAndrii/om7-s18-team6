@@ -2,33 +2,26 @@
 
 
 {% block title %}
-       
-<title>{{ title }}</title>
-
+	<title>{{ title }}</title>
 {% endblock title%}
 
 {% block header %}
-
-<h1> {{header}} </h1>
-
+	<h1> {{ header }} </h1>
 {% endblock header %}
 
 {% block content %}
-
-<div align = 'center'>
-    <div >
-		<h1>{{content_title}}</h1>
+	<div align = 'center'>
+		<div >
+			<h1>{{content_title}}</h1>
+		</div>
 	</div>
-</div>
 
 
-<div class="list-group"  align = 'left'>
-	{% for author in authors %}
-	<button type="button" class="list-group-item list-group-item-action"  width = '200'>  {{ author.surname_initials }}</button>
-	{% endfor %}
-</div>
+	<div class="list-group"  align = 'left'>
+		{% for author in authors %}
+		<button type="button" class="list-group-item list-group-item-action"  width = '200'>  {{ author.surname_initials }}</button>
+		{% endfor %}
+	</div>
 
-<li><a href="{% url 'index' %}">Back</a></li>
-
-
+	<li><a href="{% url 'index' %}">Home</a></li>
 {% endblock %}
