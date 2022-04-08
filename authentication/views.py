@@ -16,7 +16,7 @@ def user_form(request, id=0):
                 user = CustomUser.objects.get(pk=id)
             except CustomUser.DoesNotExist:
                 return redirect("/random")
-            form = AuthorForm(instance=user)
+            form = CustomUserForm(instance=user)
         return render(request, "authentication/user_form.html", {"form": form})
     else:
         if id == 0:
