@@ -20,7 +20,7 @@ from .views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-
+    path('404/', not_found_404, name='not_found_404'),
     path('user/',   include("authentication.urls"), name="user"),
     path('author/', include("author.urls"), name="author"),
     path('book/',   include("book.urls")),
@@ -29,3 +29,5 @@ urlpatterns = [
     path('rules/', rules, name="rules"),
     path('reconstruction/', reconstruction, name="reconstruction"), 
 ]
+
+# handler404 = not_found_404
