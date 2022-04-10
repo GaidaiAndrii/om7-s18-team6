@@ -1,12 +1,23 @@
+import imp
 from django.shortcuts import render, redirect
 from order.models import Order
-from authentication.models import CustomUser
-from authentication.forms import CustomUserForm
+from .models import CustomUser
+from .forms import CustomUserForm
 from django.db.models.functions import Now
 from django.db.models import Q
 from django.views.generic import ListView
 
+from rest_framework import viewsets
+from .serializers import CustomUserSerializer
 
+# viewes for sprint_18
+
+class CustomUserView(viewsets.ModelViewSet):
+    queryset = CustomUser.objects.all()
+    serializer_class = CustomUserSerializer
+
+
+#___________________________
 def user_form(request, id=0):
     if request.method == "GET":
         if id == 0:
