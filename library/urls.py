@@ -22,13 +22,14 @@ urlpatterns = [
     path('', index, name='index'),
     path('404/', not_found_404, name='not_found_404'),
     path('user/',   include("authentication.urls"), name="user"),
-    path('api/v1/', include("author.urls"), name="author"),
-    path('api/v1/',   include("book.urls")),
-    path('api/v1/',  include("order.urls"), name="order"),
+    path('author/', include("author.urls"), name="author"),
+    path('book/',   include("book.urls")),
+    path('order/',  include("order.urls"), name="order"),
     path('statistics/', statistics, name="statistics"),
     path('rules/', rules, name="rules"),
     path('reconstruction/', reconstruction, name="reconstruction"), 
-    path('api/v1/',   include("authentication.urls_rest"), name="user"),
+    path('api/v1/',  include("authentication.urls_rest")),
+    path('api/v1/',  include("order.urls_rest")),
 ]
 
 # handler404 = not_found_404
