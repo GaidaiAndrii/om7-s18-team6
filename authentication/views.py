@@ -1,4 +1,3 @@
-import imp
 from django.shortcuts import render, redirect
 from order.models import Order
 from .models import CustomUser
