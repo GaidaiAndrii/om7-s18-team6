@@ -30,6 +30,7 @@ urlpatterns = [
     path('reconstruction/', reconstruction, name="reconstruction"), 
     path('api/v1/',  include("authentication.urls_rest")),
     path('api/v1/',  include("order.urls_rest")),
+    path('api/v1/',  include("author.urls_rest")),
 ]
 
 # handler404 = not_found_404
