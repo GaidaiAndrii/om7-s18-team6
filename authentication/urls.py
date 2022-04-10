@@ -1,9 +1,6 @@
-from django.urls import path, include
-from . import views
-from rest_framework import routers
+from django.urls import path
 
-router = routers.DefaultRouter()
-router.register('user', views.CustomUserView)
+from . import views
 
 urlpatterns = [
     path('form', views.user_form, name='user_form'),
