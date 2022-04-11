@@ -9,6 +9,7 @@ from django.views.generic import ListView
 from rest_framework import viewsets
 from .serializers import CustomUserSerializer
 
+
 # viewes for sprint_18
 
 class CustomUserView(viewsets.ModelViewSet):
@@ -16,7 +17,7 @@ class CustomUserView(viewsets.ModelViewSet):
     serializer_class = CustomUserSerializer
 
 
-#___________________________
+# ___________________________
 def user_form(request, id=0):
     if request.method == "GET":
         if id == 0:

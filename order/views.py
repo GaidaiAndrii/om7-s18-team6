@@ -7,6 +7,7 @@ from book.models import Book
 from rest_framework import viewsets
 from .serializers import OrderSerializer
 
+
 # viewes for sprint_18
 
 class OrderView(viewsets.ModelViewSet):
@@ -14,9 +15,7 @@ class OrderView(viewsets.ModelViewSet):
     serializer_class = OrderSerializer
 
 
-#___________________________
-
-
+# ___________________________
 class OrderList(ListView):
     model = Order
     template_name = "order/list.html"
