@@ -21,13 +21,16 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('404/', not_found_404, name='not_found_404'),
-    path('user/',   include("authentication.urls"), name="user"),
+    path('user/', include("authentication.urls"), name="user"),
     path('author/', include("author.urls"), name="author"),
-    path('book/',   include("book.urls")),
-    path('order/',  include("order.urls"), name="order"),
+    path('book/', include("book.urls")),
+    path('order/', include("order.urls"), name="order"),
     path('statistics/', statistics, name="statistics"),
     path('rules/', rules, name="rules"),
-    path('reconstruction/', reconstruction, name="reconstruction"), 
+    path('reconstruction/', reconstruction, name="reconstruction"),
+    path('api/v1/', include('api.urls'), name='api'),
+    # path('api/v1/', include("authentication.urls_rest")),
+    # path('api/v1/', include("order.urls_rest")),
+    # path('api/v1/', include("author.urls_rest")),
+    # path('api/v1/', include("book.urls_rest")),
 ]
-
-# handler404 = not_found_404

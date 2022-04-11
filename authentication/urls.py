@@ -1,9 +1,10 @@
 from django.urls import path
-from .views import *
+
+from . import views
 
 urlpatterns = [
-    path('', user_form, name='user_form'),
-    path('<int:id>/', user_form, name='edit_user'),
-    path('all/', UserList.as_view(), name='users'),
-    path('overdue/', overdue, name='overdue')
+    path('form', views.user_form, name='user_form'),
+    path('<int:id>/', views.user_form, name='edit_user'),
+    path('all/', views.UserList.as_view(), name='users'),
+    path('overdue/', views.overdue, name='overdue'),
 ]
