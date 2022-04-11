@@ -5,16 +5,16 @@ from author.forms import AuthorForm
 from order.models import Author
 
 from rest_framework import viewsets
-from .serializers import AuthorSerializer
+# from .serializers import AuthorSerializer
 
-# viewes for sprint_18
-
-class AuthorView(viewsets.ModelViewSet):
-    queryset = Author.objects.all()
-    serializer_class = AuthorSerializer
-
-
-#___________________________
+# # viewes for sprint_18
+#
+# class AuthorView(viewsets.ModelViewSet):
+#     queryset = Author.objects.all()
+#     serializer_class = AuthorSerializer
+#
+#
+# #___________________________
 
 
 

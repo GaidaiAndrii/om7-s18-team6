@@ -5,17 +5,17 @@ from order.forms import OrderForm
 from book.models import Book
 
 from rest_framework import viewsets
-from .serializers import OrderSerializer
+# from .serializers import OrderSerializer
 
 
-# viewes for sprint_18
-
-class OrderView(viewsets.ModelViewSet):
-    queryset = Order.objects.all()
-    serializer_class = OrderSerializer
-
-
-# ___________________________
+# # viewes for sprint_18
+#
+# class OrderView(viewsets.ModelViewSet):
+#     queryset = Order.objects.all()
+#     serializer_class = OrderSerializer
+#
+#
+# # ___________________________
 class OrderList(ListView):
     model = Order
     template_name = "order/list.html"

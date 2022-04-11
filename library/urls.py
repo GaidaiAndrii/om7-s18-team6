@@ -28,8 +28,9 @@ urlpatterns = [
     path('statistics/', statistics, name="statistics"),
     path('rules/', rules, name="rules"),
     path('reconstruction/', reconstruction, name="reconstruction"),
-    path('api/v1/', include("authentication.urls_rest")),
-    path('api/v1/', include("order.urls_rest")),
-    path('api/v1/', include("author.urls_rest")),
-    path('api/v1/', include("book.urls_rest")),
+    path('api/v1/', include('api.urls'), name='api'),
+    # path('api/v1/', include("authentication.urls_rest")),
+    # path('api/v1/', include("order.urls_rest")),
+    # path('api/v1/', include("author.urls_rest")),
+    # path('api/v1/', include("book.urls_rest")),
 ]

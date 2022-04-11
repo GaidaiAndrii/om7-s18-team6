@@ -6,13 +6,13 @@ from rest_framework import viewsets
 from authentication.models import CustomUser
 from book.forms import *
 from book.models import Book
-from book.serializers import BookSerializer
+# from book.serializers import BookSerializer
 from order.models import Order
 
 
-class BookView(viewsets.ModelViewSet):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
+# class BookView(viewsets.ModelViewSet):
+#     queryset = Book.objects.all()
+#     serializer_class = BookSerializer
 
 
 class BookListSearch(ListView):
