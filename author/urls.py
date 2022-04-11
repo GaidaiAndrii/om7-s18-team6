@@ -1,13 +1,9 @@
-from django.urls import path, include
-from . import views
-from rest_framework import routers
+from django.urls import path
 
-router = routers.DefaultRouter()
-router.register('author', views.AuthorView)
+from . import views
 
 urlpatterns = [
     path('', views.AuthorList.as_view(), name='author'),
     path('form/', views.author_form, name='author_insert'),
     path('form/<int:id>', views.author_form, name='author_update'),
-    path('', include(router.urls)),
 ]
